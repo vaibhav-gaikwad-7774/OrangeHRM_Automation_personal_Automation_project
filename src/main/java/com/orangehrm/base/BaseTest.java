@@ -9,8 +9,12 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterMethod;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+import com.orangehrm.utils.ScreenshotUtil;
 
 public class BaseTest {
 	
@@ -58,6 +62,17 @@ public class BaseTest {
 	protected void logicWithScreenshot(String message) {
 		String testName = message.replace(" ", "_");
 		String path = ScreenshotUtil.captureScreenshot(driver, testName);
+		
+		if(logger != null) {
+			logger.log(Status.INFO, message);
+			
+			logger.info("Click to open Screenshot", MediaEntityBuilder.createScreenCaptureFromPath(path).build());
+		}
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
 	}
 	
 	
