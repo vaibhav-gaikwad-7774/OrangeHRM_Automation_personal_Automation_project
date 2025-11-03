@@ -6,8 +6,11 @@
       <class name="com.orangehrm.testCases.AdminTests">
         <methods>
           <include name="tearDown"/>
-          <include name="varifyMenyCount"/>
+          <include name="searchByUsername"/>
+          <include name="searchByUserRole"/>
           <include name="setup"/>
+          <include name="searchByStatus"/>
+          <include name="verifyMenuCount"/>
         </methods>
       </class> <!-- com.orangehrm.testCases.AdminTests -->
     </classes>

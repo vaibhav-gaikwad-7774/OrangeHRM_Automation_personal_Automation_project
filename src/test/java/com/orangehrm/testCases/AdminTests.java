@@ -30,6 +30,8 @@ public class AdminTests extends TestBase {
 		Assert.assertEquals(adminpage.getMenuOptionCount(), 12);
 	}
 	
+	
+	
 	@BeforeMethod
 	public void tearDown() {
 		driver.close();
